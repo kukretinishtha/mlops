@@ -10,4 +10,5 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: 
+- script: python main.py
+  description: 'test'
