@@ -10,27 +10,4 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: Use Python 3.6
-  displayName: 'Use Python'
-
-steps:
-- script: environment_setup/.install-requirements
-  displayName: 'Installing Requirements'
-
-- script: az extension add -n azure-cli-ml
-  displayName: 'Install azure cli'
-
-- scripts: az ml workspace create -g $(ml.resourceGroup) -w $(ml.workspace) -l $(ml.region) --exist-ok --yes
-  displayName: 'create resourceGroup workSpace Region'
-
-steps:
-- script: az ml computetarget create amlcompute -g $(ml.resourceGroup) -w $(ml.workspace) -n $(ml.computeName) -s $(ml.computeVMSize) --min-nodes $(ml.computeMinNodes) --max-nodes $(ml.computeMaxNodes) --idle-seconds-before-scaledown $(ml.computeIdleSecs) 
-  displayName: 'Target Compute'
-
-steps:
-- script: az ml datastore upload -w $(ml.workspace) -g $(ml.resourceGroup) -n $(az ml datastore show-default -w $(ml.workspace) -g $(ml.resourceGroup) --query name -o tsv) -p data -u irisdata
-  displayName: 'Upload data to datastore'
-
-steps:
-- script: mkdir metadata && mkdir models
-  displayName: 'Create metadata and models'
+- script: 
