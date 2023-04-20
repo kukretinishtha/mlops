@@ -6,8 +6,8 @@
 trigger:
 - main
 
-pool:
-  vmImage: ubuntu-latest
+# pool:
+#   vmImage: ubuntu-latest
 
 variables:
   # Azure Resource Manager connection created during pipeline creation
@@ -57,7 +57,7 @@ stages:
       displayName: 'Upload package'
       artifact: drop
 
-- stage: Deploy
+# - stage: Deploy
   displayName: 'Deploy Web App'
   dependsOn: Build
   condition: succeeded()
