@@ -5,7 +5,7 @@ schedules:
     displayName: "Daily midnight data pipeline run"
     branches:
       include:
-      - master
+      - main
     always: true
 
 name: 'data_pipeline'

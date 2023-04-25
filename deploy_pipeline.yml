@@ -5,7 +5,7 @@ schedules:
     displayName: "Weekly Sunday deployment pipeline run"
     branches:
       include:
-      - master
+      - main
     always: true
 
 name: 'deployment_pipeline'

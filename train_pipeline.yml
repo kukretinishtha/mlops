@@ -5,7 +5,7 @@ schedules:
     displayName: "Weekly Sunday training pipeline run"
     branches:
       include:
-      - master
+      - main
     always: true
 
 name: 'training_pipeline'
