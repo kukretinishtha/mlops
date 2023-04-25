@@ -1,0 +1,43 @@
+trigger:
+  branches:
+    include:
+      - 'master'
+
+name: 'env_pipeline'
+jobs:
+  - job: 'env_pipeline_job'
+    pool:
+      vmImage: 'ubuntu-latest'
+    variables:
+      - group: KeyVault
+      - group: ProductionEnvVars
+    steps:
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: '3.7'
+          architecture: 'x64'
+    
+      - script: |
+          python -m pip install --upgrade pip
+          pip install --upgrade setuptools wheel
+        displayName: 'Install setuptools and wheel'
+      
+      - script: |
+          cd src/
+          python setup.py bdist_wheel
+        displayName: 'Create wheel file'
+      
+      - script: |
+          pip install -r requirements.txt
+        displayName: 'Install requirements'
+    
+      - script: |
+          python src/my_custom_package/create_aml_env.py
+        displayName: 'Create and Register Environment'
+        env:
+          TENANT_ID: $(TenantID)
+          SPN_ID: $(SpnID)
+          SPN_PASSWORD: $(SpnPassword)
+          AML_WORKSPACE_NAME: $(AmlWorkspaceName)
+          RESOURCE_GROUP: $(ResourceGroup)
+          SUBSCRIPTION_ID: $(SubscriptionID)

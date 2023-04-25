@@ -1,0 +1,42 @@
+trigger: none
+
+schedules:
+  - cron: "0 0 * * *"
+    displayName: "Daily midnight data pipeline run"
+    branches:
+      include:
+      - master
+    always: true
+
+name: 'data_pipeline'
+jobs:
+  - job: 'data_pipeline_job'
+    pool:
+      vmImage: 'ubuntu-latest'
+    variables:
+      - group: KeyVault
+      - group: ProductionEnvVars
+    steps:
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: '3.7'
+          architecture: 'x64'
+    
+      - script: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+        displayName: 'Install requirements'
+    
+      - script: |
+          python src/my_custom_package/create_data.py
+        displayName: 'Create and Register Data'
+        env:
+          STORAGE_ACCT_NAME: $(StorageAccountName)
+          STORAGE_ACCT_KEY: $(StorageAccountKey)
+          TENANT_ID: $(TenantID)
+          SPN_ID: $(SpnID)
+          SPN_PASSWORD: $(SpnPassword)
+          AML_WORKSPACE_NAME: $(AmlWorkspaceName)
+          RESOURCE_GROUP: $(ResourceGroup)
+          SUBSCRIPTION_ID: $(SubscriptionID)
+    
