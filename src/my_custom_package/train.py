@@ -5,8 +5,8 @@ from azureml.core import Datastore, Dataset, Run
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import f1_score
 
-from my_custom_package.utils.const import TRAINING_DATASTORE, MODEL_NAME
-from my_custom_package.utils.transform_data import remove_collinear_cols
+from utils.const import TRAINING_DATASTORE, MODEL_NAME
+from utils.transform_data import remove_collinear_cols
 
 
 __here__ = os.path.dirname(__file__)

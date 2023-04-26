@@ -4,8 +4,8 @@ from azureml.core.environment import Environment
 from azureml.core.model import InferenceConfig, Model
 from azureml.core.webservice import AciWebservice, Webservice
 
-from my_custom_package.utils.aml_interface import AMLInterface
-from my_custom_package.utils.const import (
+from utils.aml_interface import AMLInterface
+from utils.const import (
     AML_ENV_NAME, DEPLOYMENT_SERVICE_NAME, MODEL_NAME)
 
 

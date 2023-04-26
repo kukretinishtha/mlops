@@ -5,7 +5,7 @@ import joblib
 import numpy as np
 from azureml.core.model import Model
 
-from my_custom_package.utils.const import MODEL_NAME
+from utils.const import MODEL_NAME
 
 
 def init():

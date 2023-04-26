@@ -3,8 +3,8 @@ import os
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.environment import Environment
 
-from my_custom_package.utils.aml_interface import AMLInterface
-from my_custom_package.utils.const import AML_ENV_NAME
+from utils.aml_interface import AMLInterface
+from utils.const import AML_ENV_NAME
 
 
 def get_dist_dir():

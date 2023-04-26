@@ -2,8 +2,8 @@ import os
 
 from azureml.core import ScriptRunConfig, Experiment, Environment
 
-from my_custom_package.utils.aml_interface import AMLInterface
-from my_custom_package.utils.const import (
+from utils.aml_interface import AMLInterface
+from utils.const import (
     AML_COMPUTE_NAME, AML_ENV_NAME, AML_EXPERIMENT_NAME)
 
 
