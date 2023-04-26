@@ -5,3 +5,7 @@ Jinja2>=2.10.1
 MarkupSafe==2.1.2
 Werkzeug>=0.15.3
 setuptools==45.0.0
+pandas=2.0.1
+scikit-learn=1.2.2
+azure-storage-blob=12.16.0
+azure-core=1.26.4
