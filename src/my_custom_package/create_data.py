@@ -3,11 +3,11 @@ import os
 import pandas as pd
 from sklearn.datasets import make_classification
 
-from my_custom_package.utils.blob_storage_interface import BlobStorageInterface
-from my_custom_package.utils.const import (
+from utils.blob_storage_interface import BlobStorageInterface
+from utils.const import (
     TRAINING_CONTAINER, SCORING_CONTAINER, TRAINING_DATASTORE
 )
-from my_custom_package.utils.aml_interface import AMLInterface
+from utils.aml_interface import AMLInterface
 
 class CreateClassificationData():
     def __init__(self):
