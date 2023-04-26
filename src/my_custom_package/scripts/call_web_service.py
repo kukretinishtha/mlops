@@ -6,11 +6,11 @@ import requests
 from azureml.core.webservice import Webservice
 from sklearn.metrics import f1_score
 
-from my_custom_package.utils.aml_interface import AMLInterface
-from my_custom_package.utils.blob_storage_interface import BlobStorageInterface
-from my_custom_package.utils.const import (
+from utils.aml_interface import AMLInterface
+from utils.blob_storage_interface import BlobStorageInterface
+from utils.const import (
     SCORING_CONTAINER, DEPLOYMENT_SERVICE_NAME)
-from my_custom_package.utils.transform_data import remove_collinear_cols
+from utils.transform_data import remove_collinear_cols
 
 
 def get_validation_data(storage_acct_name, storage_acct_key):
