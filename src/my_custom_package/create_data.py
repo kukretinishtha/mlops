@@ -3,11 +3,11 @@ import os
 import pandas as pd
 from sklearn.datasets import make_classification
 
-from utils.blob_storage_interface import BlobStorageInterface
-from utils.const import (
+from my_custom_package.utils.blob_storage_interface import BlobStorageInterface
+from my_custom_package.utils.const import (
     TRAINING_CONTAINER, SCORING_CONTAINER, TRAINING_DATASTORE
 )
-from utils.aml_interface import AMLInterface
+from my_custom_package.utils.aml_interface import AMLInterface
 
 class CreateClassificationData():
     def __init__(self):
@@ -85,6 +85,7 @@ def main():
     workspace_name = os.environ['AML_WORKSPACE_NAME']
     resource_group = os.environ['RESOURCE_GROUP']
     subscription_id = os.environ['SUBSCRIPTION_ID']
+    print("subscription_id", subscription_id)
 
     spn_credentials = {
         'tenant_id': os.environ['TENANT_ID'],
