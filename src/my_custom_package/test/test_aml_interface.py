@@ -12,14 +12,14 @@ from unittest.mock import Mock, patch
 
 from azureml.exceptions import ComputeTargetException
 
-from my_custom_package.utils.aml_interface import AMLInterface
+from utils.aml_interface import AMLInterface
 
-test_module = 'my_custom_package.utils.aml_interface'
+test_module = 'utils.aml_interface'
 
 class TestAMLInterface(TestCase):
-    @patch(f'{test_module}.ServicePrincipalAuthentication')
+    @patch(f'{test_module}.InteractiveLoginAuthentication')
     @patch(f'{test_module}.Workspace')
-    def setUp(self, mock_Workspace, mock_ServicePrincipalAuthentication):
+    def setUp(self, mock_Workspace, mock_InteractiveLoginAuthentication):
         mock_Workspace.return_value = 'test_workspace'
         spn_credentials = {
             'tenant_id': 'test_tenant_id',
@@ -30,7 +30,8 @@ class TestAMLInterface(TestCase):
             spn_credentials=spn_credentials,
             subscription_id='test_subscription_id',
             workspace_name='test_workspace_name',
-            resource_group='test_resource_group'
+            resource_group='test_resource_group',
+            tenant_id='test_tenant_id'
         )
     
     @patch(f'{test_module}.Datastore')

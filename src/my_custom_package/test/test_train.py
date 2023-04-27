@@ -7,7 +7,7 @@ import joblib
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 
-from my_custom_package.train import (
+from train import (
     get_df_from_datastore_path, prepare_data, train_model,
     evaluate_model, save_model, register_model)
 

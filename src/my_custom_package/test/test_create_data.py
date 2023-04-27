@@ -3,7 +3,7 @@ from unittest.mock import Mock
 
 import pandas as pd
 
-from my_custom_package.create_data import CreateClassificationData
+from create_data import CreateClassificationData
 
 
 class TestCreateClassificationData(TestCase):
