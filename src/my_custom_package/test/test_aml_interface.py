@@ -12,7 +12,7 @@ from unittest.mock import Mock, patch
 
 from azureml.exceptions import ComputeTargetException
 
-from src.my_custom_package.utils.blob_storage_interface import AMLInterface
+from my_custom_package.utils.blob_storage_interface import AMLInterface
 
 test_module = 'utils.aml_interface'
 

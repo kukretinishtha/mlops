@@ -24,6 +24,10 @@ jobs:
       pip install -r requirements.txt
     displayName: 'Install project requirements'
 
+  -scripts: |
+      
+
+
   - script: |
       pytest -v src/my_custom_package/test/ --doctest-modules --junitxml=unit-testresults.xml --cov=src/my_custom_package/ --cov-append --cov-report=xml:coverage.xml --cov-report=html:htmlcov
     displayName: 'Run all unit tests'

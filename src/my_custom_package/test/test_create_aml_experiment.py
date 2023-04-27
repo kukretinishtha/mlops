@@ -3,7 +3,7 @@ from unittest.mock import patch, Mock
 
 from azureml.core import ScriptRunConfig
 
-from create_aml_experiment import submit_run
+from my_custom_package.create_aml_experiment import submit_run
 
 
 class TestSubmitRun(TestCase):
