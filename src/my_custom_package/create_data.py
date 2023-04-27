@@ -85,6 +85,7 @@ def main():
     workspace_name = os.environ['AML_WORKSPACE_NAME']
     resource_group = os.environ['RESOURCE_GROUP']
     subscription_id = os.environ['SUBSCRIPTION_ID']
+    tenant_id = os.environ['TENANT_ID']
     print("subscription_id", subscription_id)
 
     spn_credentials = {
@@ -101,9 +102,11 @@ def main():
     data_creator = CreateClassificationData()
     data_creator.upload_data(blob_storage_interface)
 
+    
+
     # Register Blob Store to AML
     aml_interface = AMLInterface(
-        spn_credentials, subscription_id, workspace_name, resource_group
+        spn_credentials, subscription_id, workspace_name, resource_group, tenant_id
     )
     aml_interface.register_datastore(
         TRAINING_CONTAINER, TRAINING_DATASTORE,

@@ -2,16 +2,15 @@ from azureml.core import Workspace, Datastore
 from azureml.core.authentication import ServicePrincipalAuthentication
 from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.exceptions import ComputeTargetException
+from azureml.core.authentication import InteractiveLoginAuthentication
 
 class AMLInterface:
     def __init__(self, spn_credentials, subscription_id,
-                 workspace_name, resource_group):
-        auth = ServicePrincipalAuthentication(
-            **spn_credentials
-        )
+                 workspace_name, resource_group, tenant_id, force=True):
+        interactive_auth = InteractiveLoginAuthentication(tenant_id) 
         self.workspace = Workspace(
             workspace_name=workspace_name,
-            auth=auth,
+            auth=interactive_auth,
             subscription_id=subscription_id,
             resource_group=resource_group
         )
@@ -53,3 +52,12 @@ class AMLInterface:
                 timeout_in_minutes=20
             )
         return compute_target
+
+
+from azureml.core.authentication import InteractiveLoginAuthentication
+forced_interactive_auth = InteractiveLoginAuthentication(tenant_id="my-tenant-id", force=True)
+
+ws = Workspace(subscription_id="my-subscription-id",
+               resource_group="my-ml-rg",
+               workspace_name="my-ml-workspace",
+               auth=forced_interactive_auth)
