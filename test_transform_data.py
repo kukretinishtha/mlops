@@ -2,7 +2,7 @@ from unittest import TestCase
 
 import pandas as pd
 
-from utils.transform_data import remove_collinear_cols
+from src.my_custom_package.utils.transform_data import remove_collinear_cols
 
 
 class TestTransformData(TestCase):

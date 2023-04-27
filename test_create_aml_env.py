@@ -5,7 +5,7 @@ from azureml.core.conda_dependencies import CondaDependencies
 from unittest import TestCase
 from unittest.mock import patch, Mock
 
-from create_aml_env import (
+from src.my_custom_package.create_aml_env import (
     get_dist_dir, retrieve_whl_filepath, create_aml_environment)
 
 

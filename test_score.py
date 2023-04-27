@@ -6,8 +6,8 @@ from unittest.mock import Mock, patch
 import pandas as pd
 from sklearn.linear_model import LogisticRegression
 
-from score import init, run
-from utils.transform_data import remove_collinear_cols
+from src.my_custom_package.score import init, run
+from src.my_custom_package.utils.transform_data import remove_collinear_cols
 
 __here__ = os.path.dirname(__file__)
 test_data_dir = os.path.join(__here__, 'test_data')

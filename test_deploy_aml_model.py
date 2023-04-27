@@ -3,7 +3,7 @@ from unittest.mock import patch, Mock
 
 from azureml.core import ScriptRunConfig
 
-from deploy_aml_model import (
+from src.my_custom_package.deploy_aml_model import (
     get_inference_config, deploy_service, update_service)
 
 
