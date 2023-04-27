@@ -52,6 +52,7 @@ def main():
     workspace_name = os.environ['AML_WORKSPACE_NAME']
     resource_group = os.environ['RESOURCE_GROUP']
     subscription_id = os.environ['SUBSCRIPTION_ID']
+    tenant_id = os.environ['TENANT_ID']
 
     spn_credentials = {
         'tenant_id': os.environ['TENANT_ID'],
@@ -60,7 +61,7 @@ def main():
     }
 
     aml_interface = AMLInterface(
-        spn_credentials, subscription_id, workspace_name, resource_group
+        spn_credentials, subscription_id, workspace_name, resource_group, tenant_id
     )
     aml_env = create_aml_environment(aml_interface)
     aml_interface.register_aml_environment(aml_env)
