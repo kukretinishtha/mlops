@@ -52,12 +52,3 @@ class AMLInterface:
                 timeout_in_minutes=20
             )
         return compute_target
-
-
-from azureml.core.authentication import InteractiveLoginAuthentication
-forced_interactive_auth = InteractiveLoginAuthentication(tenant_id="my-tenant-id", force=True)
-
-ws = Workspace(subscription_id="my-subscription-id",
-               resource_group="my-ml-rg",
-               workspace_name="my-ml-workspace",
-               auth=forced_interactive_auth)
