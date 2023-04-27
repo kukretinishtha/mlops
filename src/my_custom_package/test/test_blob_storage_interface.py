@@ -13,7 +13,7 @@ from unittest.mock import Mock, patch
 import pandas as pd
 from azure.core.exceptions import ResourceExistsError
 
-test_module = 'utils.blob_storage_interface'
+test_module = 'my_custom_package.utils.blob_storage_interface'
 
 
 class TestBlobStorageInterface(TestCase):

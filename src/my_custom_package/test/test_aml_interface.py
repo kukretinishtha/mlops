@@ -14,7 +14,7 @@ from azureml.exceptions import ComputeTargetException
 
 from my_custom_package.utils.blob_storage_interface import AMLInterface
 
-test_module = 'utils.aml_interface'
+test_module = 'my_custom_package.utils.aml_interface'
 
 class TestAMLInterface(TestCase):
     @patch(f'{test_module}.InteractiveLoginAuthentication')
